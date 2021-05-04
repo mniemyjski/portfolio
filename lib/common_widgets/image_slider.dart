@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:portfolio/app/home/details_screen.dart';
 
 class ImageSlider extends StatefulWidget {
@@ -44,7 +43,10 @@ class _ImageSliderState extends State<ImageSlider> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey.withOpacity(0.2),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(4),
+      ),
       child: Column(children: [
         Container(
           padding: EdgeInsets.all(8),

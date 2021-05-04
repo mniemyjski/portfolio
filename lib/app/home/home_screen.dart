@@ -16,14 +16,14 @@ class HomeScreen extends StatelessWidget {
         image: DecorationImage(
           // colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
           image: AssetImage("resources/images/bg_1.jpg"),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       );
     } else {
       return BoxDecoration(
         image: DecorationImage(
           image: AssetImage("resources/images/bg_1.jpg"),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       );
     }
@@ -43,14 +43,14 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    navigationHead(),
+                    navigationHead(context),
                     titleMain(Constants.aboutMe()),
-                    description(Constants.about()),
+                    description(Constants.aboutDesc()),
                     titleMain(Constants.projects()),
                     project(
                       context: context,
                       name: 'Fitable:',
-                      desc: Constants.about(),
+                      desc: Constants.fitableDesc(),
                       widgets: [
                         libCard('Flutter'),
                         libCard('Riverpod'),
@@ -59,19 +59,32 @@ class HomeScreen extends StatelessWidget {
                         libCard('Authentication'),
                         libCard('Functions'),
                         libCard('Algolia'),
-                        libCard('Authentication'),
                       ],
                       photos: [
                         'resources/images/fitable/1.jpg',
                         'resources/images/fitable/2.jpg',
                         'resources/images/fitable/3.jpg',
                         'resources/images/fitable/4.jpg',
+                        'resources/images/fitable/5.jpg',
+                        'resources/images/fitable/6.jpg',
                       ],
                     ),
+                    // project(
+                    //   context: context,
+                    //   name: 'ZPR - Reklamacje v2:',
+                    //   desc: Constants.zpr2Desc(),
+                    //   widgets: [
+                    //     libCard('WPF'),
+                    //     libCard('ODBC'),
+                    //     libCard('SQL'),
+                    //     libCard('PL/SQL'),
+                    //   ],
+                    //   photos: [],
+                    // ),
                     project(
                       context: context,
                       name: 'ZPR - Reklamacje:',
-                      desc: Constants.about(),
+                      desc: Constants.zprDesc(),
                       widgets: [
                         libCard('Userform'),
                         libCard('ODBC'),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String name;
@@ -11,13 +10,12 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
       ),
       body: GestureDetector(
         onTap: () => Navigator.of(context).pop(),
-        child: PhotoView(
-          imageProvider: AssetImage(name),
-        ),
+        child: Center(child: Image.asset(name)),
       ),
     );
   }

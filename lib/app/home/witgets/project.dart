@@ -29,14 +29,17 @@ project({
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 8, top: 4),
+                    padding: const EdgeInsets.only(left: 8),
                     child: Text(Constants.useLib()),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Wrap(children: widgets),
                   ),
-                  description(desc),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: description(desc),
+                  ),
                 ],
               ),
             ),
@@ -56,14 +59,17 @@ project({
           imgList: photos,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 8, top: 4),
+          padding: const EdgeInsets.only(left: 8, top: 8),
           child: Text(Constants.useLib()),
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Wrap(children: widgets),
         ),
-        description(desc),
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: description(desc),
+        ),
         Divider(),
       ],
     ),

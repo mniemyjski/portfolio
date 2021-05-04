@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 titleSecondary(String title) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 8, top: 8, left: 8),
+    padding: const EdgeInsets.only(bottom: 8, top: 16),
     child: Container(
         width: double.infinity,
         child: Text(

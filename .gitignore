@@ -45,3 +45,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /resources/images/profile.png
+/resources/images/profile_1.png
