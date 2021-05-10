@@ -1,8 +1,10 @@
 abstract class Constants {
   static github() => 'https://github.com/mniemyjski';
   static linkedIn() => 'https://www.linkedin.com/in/mniemyjski/';
-  static projects() => 'Projekty:';
-  static aboutMe() => 'O mnie:';
+  static projects() => 'PROJEKTY';
+  static aboutMe() => 'O MNIE';
+  static home() => 'STRONA GŁÓWNA';
+  static tech() => 'Znane technologie:';
   static blog() => 'Blog';
   static useLib() => 'Wykorzystane technologie:';
   static aboutDesc() =>
