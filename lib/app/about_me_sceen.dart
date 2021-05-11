@@ -3,9 +3,9 @@ import 'package:portfolio/common_widgets/custom_screen.dart';
 import 'package:portfolio/common_widgets/description.dart';
 import 'package:portfolio/common_widgets/main_image.dart';
 import 'package:portfolio/common_widgets/text_card.dart';
-import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/utilities/constants.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:portfolio/constants/responsive.dart';
+import 'package:portfolio/utilities/responsive.dart';
 
 class AboutMeScreen extends StatelessWidget {
   final List<String> tech;

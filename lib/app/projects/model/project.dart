@@ -12,8 +12,8 @@ class Project {
     @required this.name,
     @required this.desc,
     @required this.image,
-    @required this.github,
-    @required this.googlePlay,
+    this.github = '',
+    this.googlePlay = '',
     @required this.libraries,
   });
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/responsive.dart';
+import 'package:portfolio/utilities/responsive.dart';
 
 class CustomScreen extends StatelessWidget {
   final Widget child;

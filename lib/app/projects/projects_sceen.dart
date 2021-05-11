@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/projects/model/project.dart';
-import 'package:portfolio/app/projects/widget/custom_project.dart';
+import 'package:portfolio/app/projects/widget/custom_project_deskop.dart';
+import 'package:portfolio/app/projects/widget/custom_project_mobile.dart';
 import 'package:portfolio/common_widgets/custom_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:portfolio/constants/responsive.dart';
+import 'package:portfolio/utilities/responsive.dart';
 
 class ProjectsScreen extends StatefulWidget {
   final List<Project> projects;
@@ -19,7 +20,13 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _project() => widget.projects.map((e) => CustomProject(e)).toList();
+    List<Widget> _project() => widget.projects
+        .map((e) => Responsive(
+              mobile: CustomProjectMobile(e),
+              desktop: CustomProjectDesktop(e),
+            ))
+        .toList();
+
     List<Widget> _circle() => widget.projects
         .map((e) => Container(
               width: 12.0,

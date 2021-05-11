@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common_widgets/custom_screen.dart';
-import 'package:portfolio/common_widgets/icon_button.dart';
+import 'package:portfolio/common_widgets/custom_icon_button.dart';
 import 'package:portfolio/common_widgets/main_image.dart';
 import 'package:portfolio/common_widgets/open_url.dart';
-import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/utilities/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:portfolio/constants/responsive.dart';
+import 'package:portfolio/utilities/responsive.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key key}) : super(key: key);
@@ -51,8 +51,8 @@ class WelcomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                iconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
-                iconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
+                CustomIconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
+                CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
               ],
             )
           ],
@@ -67,7 +67,6 @@ class WelcomeScreen extends StatelessWidget {
 
   _mobile(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
@@ -84,7 +83,7 @@ class WelcomeScreen extends StatelessWidget {
             child: AnimatedTextKit(
               repeatForever: true,
               animatedTexts: [
-                TypewriterAnimatedText('Niemyjski Marcel', textStyle: TextStyle(fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily)),
+                TypewriterAnimatedText('  Niemyjski Marcel', textStyle: TextStyle(fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily)),
               ],
               isRepeatingAnimation: true,
             ),
@@ -93,8 +92,8 @@ class WelcomeScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            iconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
-            iconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
+            CustomIconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
+            CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
           ],
         ),
       ],

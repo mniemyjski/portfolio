@@ -4,7 +4,7 @@ import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/app/projects/projects_sceen.dart';
 import 'package:portfolio/app/welcome_screen.dart';
 import 'package:portfolio/common_widgets/text_button.dart';
-import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/utilities/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   final _controller = ScrollController();
@@ -12,14 +12,14 @@ class HomeScreen extends StatelessWidget {
     Project(
       name: 'Fitable',
       desc: Constants.about(),
-      github: '',
+      github: Constants.github(),
       image: 'resources/images/fitable/fitable.png',
       libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Functions', 'Algolia', 'Localization'],
     ),
     Project(
       name: 'ZPRBOX',
       desc: Constants.about(),
-      github: '',
+      github: Constants.github(),
       image: '',
       libraries: ['USERFORM', 'VBA', 'ODBC', 'SQL', 'PL/SQL'],
     ),
