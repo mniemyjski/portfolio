@@ -50,7 +50,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               items: _project(),
               options: CarouselOptions(
                 autoPlay: true,
-                aspectRatio: 0.6,
+                aspectRatio: 8 / 17,
                 viewportFraction: 0.9,
                 onPageChanged: (index, reason) => setState(() => current = index),
               ),

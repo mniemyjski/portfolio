@@ -6,6 +6,7 @@ class Project {
   final String github;
   final String googlePlay;
   final String image;
+  final List<String> images;
   final List<String> libraries;
 
   Project({
@@ -14,6 +15,7 @@ class Project {
     @required this.image,
     this.github = '',
     this.googlePlay = '',
+    this.images,
     @required this.libraries,
   });
 }

@@ -10,7 +10,7 @@ class Description extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8, right: 8),
       child: Container(
           width: double.infinity,
-          child: Text(
+          child: SelectableText(
             text,
             textAlign: TextAlign.justify,
           )),

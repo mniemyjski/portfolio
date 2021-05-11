@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:portfolio/app/details_image_screen.dart';
 import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/common_widgets/custom_icon_button.dart';
 import 'package:portfolio/common_widgets/description.dart';
@@ -13,6 +15,13 @@ class CustomProjectDesktop extends StatelessWidget {
 
   _onGithubPress() => openUrl(project.github);
   _onGooglePress() => openUrl(project.googlePlay);
+
+  _onImagePress(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailsImageScreen(project.images)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +54,22 @@ class CustomProjectDesktop extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(width: MediaQuery.of(context).size.width * 0.75, child: Image.asset(project.image)),
+                              Container(
+                                  width: MediaQuery.of(context).size.width * 0.75,
+                                  child: MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: GestureDetector(
+                                      child: Image.asset(project.image),
+                                      onTap: () => _onImagePress(context),
+                                    ),
+                                  )),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    GestureDetector(
-                                        onTap: () => _onGooglePress,
+                                    TextButton(
+                                        onPressed: () => _onGooglePress,
                                         child: Image.asset(
                                           'resources/images/google-play-pl.png',
                                           width: 150,
@@ -72,7 +89,7 @@ class CustomProjectDesktop extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(Constants.useLib()),
+                              SelectableText(Constants.useLib()),
                               Wrap(children: _libraries()),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
