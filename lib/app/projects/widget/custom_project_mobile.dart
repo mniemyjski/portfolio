@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/details_image_screen.dart';
 import 'package:portfolio/app/projects/model/project.dart';
+import 'package:portfolio/app/projects/widget/social_buttons.dart';
 import 'package:portfolio/common_widgets/custom_icon_button.dart';
 import 'package:portfolio/common_widgets/description.dart';
 import 'package:portfolio/common_widgets/open_url.dart';
@@ -12,10 +13,8 @@ class CustomProjectMobile extends StatelessWidget {
   final Project project;
   const CustomProjectMobile(this.project, {Key key}) : super(key: key);
 
-  _onGithubPress() => openUrl(project.github);
-  _onGooglePress() => openUrl(project.googlePlay);
-
   _onImagePress(BuildContext context) {
+    if (project.images.isEmpty) return;
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => DetailsImageScreen(project.images)),
@@ -25,6 +24,15 @@ class CustomProjectMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> _libraries() => project.libraries.map((e) => TextCard(e)).toList();
+    List<Widget> _benefits() => project.benefits
+        .map((e) => Row(
+              children: [
+                FaIcon(FontAwesomeIcons.dotCircle),
+                SizedBox(width: 8),
+                Expanded(child: Text(e)),
+              ],
+            ))
+        .toList();
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -61,21 +69,7 @@ class CustomProjectMobile extends StatelessWidget {
                                   child: Image.asset(project.image),
                                   onTap: () => _onImagePress(context),
                                 )),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                      onPressed: () => _onGooglePress,
-                                      child: Image.asset(
-                                        'resources/images/google-play-pl.png',
-                                        width: 150,
-                                      )),
-                                  CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => _onGithubPress()),
-                                ],
-                              ),
-                            ),
+                            SocialButtons(project),
                           ],
                         ),
                       )
@@ -93,6 +87,22 @@ class CustomProjectMobile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Description(project.desc),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: SelectableText(Constants.benefits()),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _benefits(),
+              ),
+            ),
+            // Wrap(children: _benefits()),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+              child: Description(project.desc2),
             ),
           ],
         ),

@@ -11,9 +11,10 @@ class HomeScreen extends StatelessWidget {
   final List<Project> _projects = [
     Project(
       name: 'Fitable',
-      desc: Constants.about(),
+      desc: Constants.fitableDesc(),
+      desc2: Constants.fitableDesc2(),
       github: Constants.github(),
-      googlePlay: '',
+      googlePlay: ' ',
       image: 'resources/images/fitable/fitable.png',
       images: [
         'resources/images/fitable/1.jpg',
@@ -23,14 +24,34 @@ class HomeScreen extends StatelessWidget {
         'resources/images/fitable/5.jpg',
         'resources/images/fitable/6.jpg',
       ],
+      benefits: [
+        'Dodawanie produktów.',
+        'Tworzenie i publikowania własnych przepisów z wideo oraz zdjęciami.',
+        'System oceniania i dodawania do ulubionych.',
+        'Obserwowanie i wyszukiwanie innych użytkowników lub trenerów.',
+        'Wyszukiwarka i skaner kodów kreskowych.',
+        'Dodawania pomiarów (waga, tkanka tłuszczowa, obwody ciała).',
+        'Synchronizacja z Google Fit (waga, kroki, spalone kalorie).',
+        'Wyliczenia BMR wraz z personalizacją.',
+      ],
       libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Functions', 'Algolia', 'Localization'],
     ),
     Project(
       name: 'ZPRBOX',
-      desc: Constants.about(),
-      github: Constants.github(),
-      googlePlay: '',
-      image: '',
+      desc: Constants.zprDesc(),
+      image: 'resources/images/zpr/zpr.jpg',
+      images: [
+        'resources/images/zpr/zpr.jpg',
+      ],
+      benefits: [
+        'Pobranie najstarszej wolnej reklamacji.',
+        'Dodawanie komentarzy.',
+        'Przepięcie na inna osobę lub skill.',
+        'Zamawianie rozmów.',
+        'Dostęp do potrzebnych raportów.',
+        'Dostęp do indywidualnego systemy motywacyjnego.',
+        'Panel administracyjny dla kadry z raportami i możliwością dodawania nowych użytkowników, zarządzania reklamacjami oraz uprawnieniami.',
+      ],
       libraries: ['USERFORM', 'VBA', 'ODBC', 'SQL', 'PL/SQL'],
     ),
   ];
