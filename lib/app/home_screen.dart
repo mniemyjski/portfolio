@@ -12,14 +12,16 @@ class HomeScreen extends StatelessWidget {
     Project(
       name: 'Fitable',
       desc: Constants.about(),
-      image: '',
+      github: '',
+      image: 'resources/images/fitable/fitable.png',
       libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Functions', 'Algolia', 'Localization'],
     ),
     Project(
       name: 'ZPRBOX',
       desc: Constants.about(),
+      github: '',
       image: '',
-      libraries: ['Userform', 'VBA', 'ODBC', 'SQL', 'PL/SQL'],
+      libraries: ['USERFORM', 'VBA', 'ODBC', 'SQL', 'PL/SQL'],
     ),
   ];
   final List<String> _tech = ['Flutter 🔥', 'Dart', 'Firebase', 'SQL', 'PL/SQL', 'VBA'];

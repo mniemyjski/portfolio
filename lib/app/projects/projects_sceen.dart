@@ -3,6 +3,7 @@ import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/app/projects/widget/custom_project.dart';
 import 'package:portfolio/common_widgets/custom_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:portfolio/constants/responsive.dart';
 
 class ProjectsScreen extends StatefulWidget {
   final List<Project> projects;
@@ -31,8 +32,9 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             ))
         .toList();
 
-    return CustomScreen(
-      child: Center(
+    _mobile() {
+      return Padding(
+        padding: const EdgeInsets.only(top: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,8 +42,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             CarouselSlider(
               items: _project(),
               options: CarouselOptions(
-                enableInfiniteScroll: true,
                 autoPlay: true,
+                aspectRatio: 0.6,
                 viewportFraction: 0.9,
                 onPageChanged: (index, reason) => setState(() => current = index),
               ),
@@ -56,7 +58,40 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    }
+
+    _desktop() {
+      return CustomScreen(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CarouselSlider(
+                items: _project(),
+                options: CarouselOptions(
+                  enableInfiniteScroll: true,
+                  autoPlay: true,
+                  aspectRatio: 17 / 8,
+                  viewportFraction: 0.9,
+                  onPageChanged: (index, reason) => setState(() => current = index),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: _circle(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Responsive(mobile: _mobile(), desktop: _desktop());
   }
 }
