@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
       desc: Constants.zprDesc(),
       image: 'resources/images/zpr/zpr.jpg',
       images: [
-        'resources/images/zpr/zpr.jpg',
+        'resources/images/zpr/1.jpg',
       ],
       benefits: [
         'Pobranie najstarszej wolnej reklamacji.',

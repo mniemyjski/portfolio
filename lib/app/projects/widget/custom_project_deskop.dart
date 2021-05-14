@@ -28,7 +28,7 @@ class CustomProjectDesktop extends StatelessWidget {
     List<Widget> _benefits() => project.benefits
         .map((e) => Row(
               children: [
-                FaIcon(FontAwesomeIcons.dotCircle),
+                FaIcon(FontAwesomeIcons.circle, size: 8),
                 SizedBox(width: 8),
                 Expanded(child: Text(e)),
               ],

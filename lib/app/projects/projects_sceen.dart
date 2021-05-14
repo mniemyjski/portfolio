@@ -50,7 +50,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               items: _project(),
               options: CarouselOptions(
                 autoPlay: true,
-                aspectRatio: 8 / 17,
+                autoPlayInterval: const Duration(seconds: 12),
+                aspectRatio: 7 / 17,
                 viewportFraction: 0.9,
                 onPageChanged: (index, reason) => setState(() => current = index),
               ),
@@ -80,6 +81,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 options: CarouselOptions(
                   enableInfiniteScroll: true,
                   autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 12),
                   aspectRatio: 17 / 8,
                   viewportFraction: 0.9,
                   onPageChanged: (index, reason) => setState(() => current = index),
