@@ -57,6 +57,7 @@ flutter:
     - resources/images/
     - resources/images/zpr/
     - resources/images/fitable/
+    - resources/images/authentication/
 
   #   - images/a_dot_ham.jpeg
 

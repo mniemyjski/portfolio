@@ -13,7 +13,7 @@ abstract class Constants {
   static zprDesc() =>
       'Jest to mój pierwszy, większy, napisany od podstaw i skończony projekt wykorzystany w firmie. Aplikacja łączy się z bazą danych Oracle wykorzystując sterowniki ODBC. Poza samą aplikacją do poprawnego jej funkcjonowania przygotowałem odpowiednie zapytania, tabele, procedury oraz triggery.';
   static fitableDesc() =>
-      'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Projekt początkowo zaczynałem pisać na czystym androidzie lesz szybko przeniosłem się na fluttera. Aplikacje kilkukrotnie przepisywałem od podstaw i wciąż jest w fazie rozwoju.';
+      'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Projekt początkowo zaczynałem pisać na czystym androidzie lecz szybko przeniosłem się na fluttera. Aplikacje kilkukrotnie przepisywałem od podstaw, testując nowo zdobytą wiedzę, sprawdzając inne rozwiązania i starając się pisać lepszy kod.';
   static fitableDesc2() =>
       'Obecnie usprawniam obecne funkcje i poprawiam kod a w przyszłości planuje dodać dziennik treningowy oraz rozbudować funkcje społecznościowe.';
 
