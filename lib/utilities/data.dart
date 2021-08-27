@@ -49,7 +49,7 @@ final List<Project> projects = [
       'Lokalizacja',
       'Tryb Ciemny',
     ],
-    libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Localization'],
+    libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
   ),
   Project(
     name: 'Authentication BloC',
@@ -71,7 +71,7 @@ final List<Project> projects = [
       'Lokalizacja',
       'Tryb Ciemny',
     ],
-    libraries: ['Flutter', 'Dart', 'BLoc', 'Firestore', 'Storage', 'Authentication', 'Localization'],
+    libraries: ['Flutter', 'Dart', 'BLoc', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
   ),
   Project(
     name: 'ZPRBOX',

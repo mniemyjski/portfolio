@@ -20,8 +20,8 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         actions: [
-          CustomTextButton(name: Constants.projects(), onPressed: () => _onPressed(context, 2)),
-          CustomTextButton(name: Constants.aboutMe(), onPressed: () => _onPressed(context, 1)),
+          CustomTextButton(name: Constants.projects(), onPressed: () => _onPressed(context, 1)),
+          // CustomTextButton(name: Constants.aboutMe(), onPressed: () => _onPressed(context, 1)),
           CustomTextButton(name: Constants.home(), onPressed: () => _onPressed(context, 0)),
           SizedBox(width: 20),
         ],
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
         controller: _controller,
         children: [
           WelcomeScreen(),
-          AboutMeScreen(tech),
+          // AboutMeScreen(tech),
           ProjectsScreen(projects),
         ],
       ),
