@@ -10,7 +10,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:portfolio/utilities/responsive.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   _desktop(BuildContext context) {
     return Row(
@@ -39,8 +39,9 @@ class WelcomeScreen extends StatelessWidget {
                     child: AnimatedTextKit(
                       repeatForever: true,
                       animatedTexts: [
-                        TypewriterAnimatedText('Niemyjski Marcel',
-                            textStyle: TextStyle(fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily)),
+                        TypewriterAnimatedText(
+                          'Niemyjski Marcel',
+                        ),
                       ],
                       isRepeatingAnimation: true,
                     ),
@@ -83,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
             child: AnimatedTextKit(
               repeatForever: true,
               animatedTexts: [
-                TypewriterAnimatedText('  Niemyjski Marcel', textStyle: TextStyle(fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily)),
+                TypewriterAnimatedText('  Niemyjski Marcel'),
               ],
               isRepeatingAnimation: true,
             ),

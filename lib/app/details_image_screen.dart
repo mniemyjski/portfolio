@@ -1,40 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/projects/model/project.dart';
-import 'package:portfolio/app/projects/widget/custom_project_deskop.dart';
-import 'package:portfolio/app/projects/widget/custom_project_mobile.dart';
-import 'package:portfolio/common_widgets/custom_screen.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:portfolio/utilities/responsive.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DetailsImageScreen extends StatefulWidget {
   final List<String> images;
 
-  const DetailsImageScreen(this.images, {Key key}) : super(key: key);
+  const DetailsImageScreen(this.images, {Key? key}) : super(key: key);
 
   @override
   _DetailsImageScreenState createState() => _DetailsImageScreenState();
 }
 
-_onBackPress(BuildContext context) => Navigator.pop(context);
-
 class _DetailsImageScreenState extends State<DetailsImageScreen> {
-  int current = 0;
+  final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _items = widget.images.map((e) => Image.asset(e)).toList();
-
-    List<Widget> _circle() => widget.images
-        .map((e) => Container(
-              width: 12.0,
-              height: 12.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: current == widget.images.indexOf(e) ? Colors.red[800] : Colors.grey,
-              ),
-            ))
-        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -42,28 +23,26 @@ class _DetailsImageScreenState extends State<DetailsImageScreen> {
         shadowColor: Colors.transparent,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () => _onBackPress(context),
-              child: CarouselSlider(
-                items: _items,
-                options: CarouselOptions(
-                  aspectRatio: 9 / 16,
-                  enableInfiniteScroll: true,
-                  viewportFraction: 1,
-                  autoPlay: true,
-                  onPageChanged: (index, reason) => setState(() => current = index),
-                ),
-              ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: PageView.builder(
+              controller: controller,
+              itemBuilder: (_, index) {
+                return _items[index % _items.length];
+              },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: _circle(),
+          SmoothPageIndicator(
+            controller: controller,
+            count: _items.length,
+            effect: JumpingDotEffect(
+              dotHeight: 16,
+              dotWidth: 16,
+              jumpScale: .7,
+              verticalOffset: 15,
             ),
           ),
         ],

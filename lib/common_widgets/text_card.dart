@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class TextCard extends StatelessWidget {
   final String name;
-  const TextCard(this.name, {Key key}) : super(key: key);
+
+  const TextCard(this.name, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

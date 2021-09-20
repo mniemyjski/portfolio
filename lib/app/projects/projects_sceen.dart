@@ -1,106 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:portfolio/app/projects/model/project.dart';
-import 'package:portfolio/app/projects/widget/custom_project_deskop.dart';
-import 'package:portfolio/app/projects/widget/custom_project_mobile.dart';
+import 'package:portfolio/app/projects/widget/custom_project.dart';
 import 'package:portfolio/common_widgets/custom_screen.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:portfolio/utilities/responsive.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProjectsScreen extends StatefulWidget {
   final List<Project> projects;
 
-  const ProjectsScreen(this.projects, {Key key}) : super(key: key);
+  const ProjectsScreen(this.projects, {Key? key}) : super(key: key);
 
   @override
   _ProjectsScreenState createState() => _ProjectsScreenState();
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  int current = 0;
-
+  final controller = PageController(viewportFraction: 0.8, keepPage: true);
   @override
   Widget build(BuildContext context) {
-    List<Widget> _project() => widget.projects
-        .map((e) => Responsive(
-              mobile: CustomProjectMobile(e),
-              desktop: CustomProjectDesktop(e),
-            ))
-        .toList();
+    List<Widget> _project() => widget.projects.map((e) => CustomProject(e)).toList();
 
-    List<Widget> _circle() => widget.projects
-        .map((e) => Container(
-              width: 12.0,
-              height: 12.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: current == widget.projects.indexOf(e) ? Colors.red[800] : Colors.grey,
-              ),
-            ))
-        .toList();
-
-    _mobile() {
-      return Padding(
-        padding: const EdgeInsets.only(top: 16),
+    return CustomScreen(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CarouselSlider(
-              items: _project(),
-              options: CarouselOptions(
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 12),
-                aspectRatio: 7 / 17,
-                viewportFraction: 0.9,
-                onPageChanged: (index, reason) => setState(() => current = index),
+            ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: 585),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                child: PageView.builder(
+                  controller: controller,
+                  itemBuilder: (_, index) {
+                    return _project()[index % _project().length];
+                  },
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: _circle(),
+            SmoothPageIndicator(
+              controller: controller,
+              count: _project().length,
+              effect: JumpingDotEffect(
+                dotHeight: 16,
+                dotWidth: 16,
+                jumpScale: .7,
+                verticalOffset: 15,
               ),
             ),
           ],
         ),
-      );
-    }
-
-    _desktop() {
-      return CustomScreen(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CarouselSlider(
-                items: _project(),
-                options: CarouselOptions(
-                  enableInfiniteScroll: true,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 12),
-                  aspectRatio: 17 / 8,
-                  viewportFraction: 0.9,
-                  onPageChanged: (index, reason) => setState(() => current = index),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: _circle(),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return Responsive(mobile: _mobile(), desktop: _desktop());
+      ),
+    );
   }
 }

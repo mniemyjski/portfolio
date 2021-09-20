@@ -4,7 +4,7 @@ import 'package:portfolio/utilities/responsive.dart';
 class CustomScreen extends StatelessWidget {
   final Widget child;
 
-  const CustomScreen({this.child, Key key}) : super(key: key);
+  const CustomScreen({Key? key, required this.child}) : super(key: key);
 
   _mobile(BuildContext context) {
     return SingleChildScrollView(

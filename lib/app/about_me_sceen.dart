@@ -9,7 +9,7 @@ import 'package:portfolio/utilities/responsive.dart';
 
 class AboutMeScreen extends StatelessWidget {
   final List<String> tech;
-  const AboutMeScreen(this.tech, {Key key}) : super(key: key);
+  const AboutMeScreen(this.tech, {Key? key}) : super(key: key);
 
   List<Widget> _tech() => tech.map((e) => TextCard(e)).toList();
 
