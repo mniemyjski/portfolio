@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class DetailsImageScreen extends StatefulWidget {
+class ImageScreen extends StatefulWidget {
   final List<String> images;
 
-  const DetailsImageScreen(this.images, {Key? key}) : super(key: key);
+  const ImageScreen(this.images, {Key? key}) : super(key: key);
 
   @override
-  _DetailsImageScreenState createState() => _DetailsImageScreenState();
+  _ImageScreenState createState() => _ImageScreenState();
 }
 
-class _DetailsImageScreenState extends State<DetailsImageScreen> {
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+class _ImageScreenState extends State<ImageScreen> {
+  final controller = PageController(viewportFraction: 0.9, keepPage: true);
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _items = widget.images.map((e) => Image.asset(e)).toList();
+    List<Widget> _items = widget.images
+        .map((e) => Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset(e),
+            ))
+        .toList();
 
     return Scaffold(
       appBar: AppBar(

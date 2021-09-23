@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio/app/details_image_screen.dart';
+import 'package:portfolio/app/image_screen.dart';
 import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/app/projects/widget/social_buttons.dart';
 import 'package:portfolio/common_widgets/description.dart';
@@ -18,7 +18,7 @@ class CustomProject extends StatelessWidget {
     if (project.images.isEmpty) return;
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DetailsImageScreen(project.images)),
+      MaterialPageRoute(builder: (context) => ImageScreen(project.images)),
     );
   }
 
@@ -26,45 +26,48 @@ class CustomProject extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> _libraries() => project.libraries.map((e) => TextCard(e)).toList();
 
-    Column _buildMobile() {
-      return Column(
-        children: [
-          Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.75,
-              child: project.images.isNotEmpty
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              width: MediaQuery.of(context).size.width * 0.75,
-                              child: GestureDetector(
-                                child: Image.asset(project.images.first),
-                                onTap: () => _onImagePress(context),
-                              )),
-                          SocialButtons(project),
-                        ],
-                      ),
-                    )
-                  : Container(),
+    Padding _buildMobile() {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.75,
+                child: project.images.isNotEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 8),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.75,
+                                child: GestureDetector(
+                                  child: Image.asset(project.images.first),
+                                  onTap: () => _onImagePress(context),
+                                )),
+                            SocialButtons(project),
+                          ],
+                        ),
+                      )
+                    : Container(),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: SelectableText(
+            SelectableText(
               Constants.useLib(),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Wrap(children: _libraries()),
-          ),
-          project.markdown,
-        ],
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Wrap(children: _libraries()),
+            ),
+            project.markdown,
+            SizedBox(height: 8),
+          ],
+        ),
       );
     }
 
@@ -113,6 +116,7 @@ class CustomProject extends StatelessWidget {
                         child: Wrap(children: _libraries()),
                       ),
                       project.markdown,
+                      SizedBox(height: 8),
                     ],
                   ))),
         ],
@@ -130,7 +134,7 @@ class CustomProject extends StatelessWidget {
         child: ListView(
           children: [
             Container(
-                padding: const EdgeInsets.only(top: 8, left: 16),
+                padding: const EdgeInsets.only(top: 8, left: 8),
                 width: double.infinity,
                 child: Text(
                   project.name,

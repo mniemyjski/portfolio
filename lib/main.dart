@@ -3,10 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization_loader/easy_localization_loader.dart';
 
-void main() {
+void main() async {
   setPathUrlStrategy();
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: [
+        Locale('pl'),
+        Locale('en'),
+      ],
+      path: 'resources/languages.csv',
+      saveLocale: true,
+      useOnlyLangCode: true,
+      assetLoader: CsvAssetLoader(),
+      fallbackLocale: Locale('en'),
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,13 +30,16 @@ class MyApp extends StatelessWidget {
       title: 'Niemyjski Marcel',
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         canvasColor: Colors.black87,
-        // textTheme: GoogleFonts.robotoSlabTextTheme(Theme.of(context).textTheme.copyWith(
-        //       bodyText1: Theme.of(context).textTheme.bodyText1.apply(color: Colors.white),
-        //       bodyText2: Theme.of(context).textTheme.bodyText1.apply(color: Colors.white),
-        //     )),
+        textTheme: GoogleFonts.robotoSlabTextTheme(Theme.of(context).textTheme.copyWith(
+              bodyText1: Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white),
+              bodyText2: Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white),
+            )),
       ),
       themeMode: ThemeMode.dark,
       home: HomeScreen(),
@@ -31,7 +48,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
-  // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,

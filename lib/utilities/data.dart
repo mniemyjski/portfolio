@@ -4,7 +4,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 final List<Project> projects = [
   Project(
     name: 'Deskable',
-    github: '',
+    github: 'https://github.com/mniemyjski/deskable',
     googlePlay: '',
     web: 'https://deskable.pl/',
     images: [
@@ -14,7 +14,7 @@ final List<Project> projects = [
     ],
     libraries: ['Flutter', 'Dart', 'Bloc', 'Firestore', 'Storage', 'Authentication', 'Localization'],
     markdown: MarkdownBody(
-        data: 'Apliakcja do rezerowania biurek wraz z ekranem do zarządzania organizacją/pokajami.\n\n'
+        data: 'Apliakcja do rezerowania biurek wraz z ekranem do zarządzania organizacją i pokajami.\n\n'
             '**Główne funkcje i zadania:**\n'
             '* Mozliwośc zarezerwowania biurka na daną godzine\n'
             '* Podział na organizacje i pokoje\n'
@@ -70,29 +70,29 @@ final List<Project> projects = [
           '* Tryb Ciemny\n',
     ),
   ),
-  Project(
-    name: 'Authentication Riverpod',
-    github: 'https://github.com/mniemyjski/authentication_riverpod',
-    googlePlay: '',
-    web: '',
-    images: [
-      'resources/images/authentication/authentication.png',
-      'resources/images/authentication/1.jpg',
-      'resources/images/authentication/2.jpg',
-      'resources/images/authentication/3.jpg',
-      'resources/images/authentication/4.jpg',
-      'resources/images/authentication/5.jpg',
-    ],
-    libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
-    markdown: MarkdownBody(
-      data: 'Projekt "startowy" wykorzystujący Riverpod napisany głównie w celach edukacyjnych.\n\n'
-          '**Główne funkcje i zadania:**\n'
-          '* Autoryzacja email oraz google\n'
-          '* Edycja profilu i zdjęcia\n'
-          '* Lokalizacja\n'
-          '* Tryb Ciemny\n',
-    ),
-  ),
+  // Project(
+  //   name: 'Authentication Riverpod',
+  //   github: 'https://github.com/mniemyjski/authentication_riverpod',
+  //   googlePlay: '',
+  //   web: '',
+  //   images: [
+  //     'resources/images/authentication/authentication.png',
+  //     'resources/images/authentication/1.jpg',
+  //     'resources/images/authentication/2.jpg',
+  //     'resources/images/authentication/3.jpg',
+  //     'resources/images/authentication/4.jpg',
+  //     'resources/images/authentication/5.jpg',
+  //   ],
+  //   libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
+  //   markdown: MarkdownBody(
+  //     data: 'Projekt "startowy" wykorzystujący Riverpod napisany głównie w celach edukacyjnych.\n\n'
+  //         '**Główne funkcje i zadania:**\n'
+  //         '* Autoryzacja email oraz google\n'
+  //         '* Edycja profilu i zdjęcia\n'
+  //         '* Lokalizacja\n'
+  //         '* Tryb Ciemny\n',
+  //   ),
+  // ),
   Project(
     name: 'ZPRBOX',
     images: [
