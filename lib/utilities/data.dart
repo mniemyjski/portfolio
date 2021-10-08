@@ -21,6 +21,16 @@ final List<Project> projects = [
             '* Przyjazny kreator pokojów oparty o drag&drop\n'),
   ),
   Project(
+    name: 'Languendly',
+    github: 'https://github.com/Clanhouse/languendly',
+    googlePlay: '',
+    images: [
+      'resources/images/languendly/1.jpg',
+    ],
+    libraries: ['Flutter', 'Dart', 'Bloc', 'Localization', 'Python', 'Django'],
+    markdown: MarkdownBody(data: 'Aplikacja do nauki języków realizowana w ramach społeczności ClanHouse.\n\n'),
+  ),
+  Project(
     name: 'Fitable',
     github: '',
     googlePlay: '',
@@ -33,7 +43,17 @@ final List<Project> projects = [
       'resources/images/fitable/5.jpg',
       'resources/images/fitable/6.jpg',
     ],
-    libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Functions', 'Algolia', 'Localization'],
+    libraries: [
+      'Flutter',
+      'Dart',
+      'Riverpod',
+      'Firestore',
+      'Storage',
+      'Authentication',
+      'Functions',
+      'Algolia',
+      'Localization'
+    ],
     markdown: MarkdownBody(
       data:
           'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Projekt początkowo zaczynałem pisać na czystym androidzie, lecz szybko przeniosłem się na fluttera. Aplikacje kilkukrotnie przepisywałem od podstaw, testując nowo zdobytą wiedzę, sprawdzając inne rozwiązania i starając się pisać lepszy kod.\n\n'
