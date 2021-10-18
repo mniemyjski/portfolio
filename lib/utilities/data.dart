@@ -14,7 +14,7 @@ final List<Project> projects = [
     ],
     libraries: ['Flutter', 'Dart', 'Bloc', 'Firestore', 'Storage', 'Authentication', 'Localization'],
     markdown: MarkdownBody(
-        data: 'Apliakcja do rezerowania biurek wraz z ekranem do zarządzania organizacją i pokajami.\n\n'
+        data: 'Aplikacja do rezerowania biurek wraz z ekranem do zarządzania organizacją i pokajami.\n\n'
             '**Główne funkcje i zadania:**\n'
             '* Mozliwośc zarezerwowania biurka na daną godzine\n'
             '* Podział na organizacje i pokoje\n'
