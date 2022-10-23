@@ -1,14 +1,17 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:portfolio/app/home_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_strategy/url_strategy.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization_loader/easy_localization_loader.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/app/home_screen.dart';
+import 'package:url_strategy/url_strategy.dart';
+
+// import 'firebase_options.dart';
 
 void main() async {
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp(
+  //     // options: DefaultFirebaseOptions.currentPlatform,
+  //     );
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -25,6 +28,17 @@ void main() async {
       child: MyApp()));
 }
 
+class Test extends StatelessWidget {
+  const Test({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Text('dfsfds'),
+    );
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,17 +52,10 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         canvasColor: Colors.black87,
-        textTheme: GoogleFonts.robotoSlabTextTheme(
-            Theme.of(context).textTheme.copyWith(
-                  bodyText1: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .apply(color: Colors.white),
-                  bodyText2: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .apply(color: Colors.white),
-                )),
+        textTheme: GoogleFonts.robotoSlabTextTheme(Theme.of(context).textTheme.copyWith(
+              bodyText1: Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white),
+              bodyText2: Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white),
+            )),
       ),
       themeMode: ThemeMode.dark,
       home: HomeScreen(),

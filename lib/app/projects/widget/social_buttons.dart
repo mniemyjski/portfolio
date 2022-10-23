@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/common_widgets/custom_icon_button.dart';
 import 'package:portfolio/common_widgets/open_url.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialButtons extends StatelessWidget {
   final Project project;
@@ -28,8 +27,15 @@ class SocialButtons extends StatelessWidget {
                   width: 150,
                 )),
           if (project.github.isNotEmpty)
-            CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => _onGithubPress()),
-          if (project.web.isNotEmpty) CustomIconButton(icon: FaIcon(FontAwesomeIcons.link), color: Colors.white, onPressed: () => _onWebPress()),
+            CustomIconButton(
+                icon: FaIcon(FontAwesomeIcons.github),
+                color: Colors.white,
+                onPressed: () => _onGithubPress()),
+          if (project.web.isNotEmpty)
+            CustomIconButton(
+                icon: FaIcon(FontAwesomeIcons.link),
+                color: Colors.white,
+                onPressed: () => _onWebPress()),
         ],
       ),
     );

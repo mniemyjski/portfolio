@@ -1,7 +1,51 @@
-import 'package:portfolio/app/projects/model/project.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:portfolio/app/projects/model/project.dart';
 
 final List<Project> projects = [
+  Project(
+    name: 'RichAble',
+    github: 'https://github.com/mniemyjski/life_simulator',
+    images: [
+      'resources/images/richable/richable.png',
+      'resources/images/richable/1.jpg',
+      'resources/images/richable/2.jpg',
+      'resources/images/richable/3.jpg',
+      'resources/images/richable/4.jpg',
+      'resources/images/richable/5.jpg',
+      'resources/images/richable/6.jpg',
+      'resources/images/richable/7.jpg',
+      'resources/images/richable/8.jpg',
+      'resources/images/richable/9.jpg',
+      'resources/images/richable/10.jpg',
+      'resources/images/richable/11.jpg',
+      'resources/images/richable/12.jpg',
+    ],
+    libraries: [
+      'Flutter',
+      'Dart',
+      'Bloc',
+      'HydratedBloc',
+      'Isar',
+      'GetIt',
+      'Injectable',
+      'Clean Code',
+      'Localization'
+    ],
+    markdown: MarkdownBody(
+      data:
+          'Turowa gra edukacyjna w której Twoim zdanie jest stać się bogatym poprzez prace, inwestowanie na giełdzie lub w nieruchomości, czy zakładanie własnych biznesów.\n\n'
+          '**Główne funkcje i zadania:**\n'
+          '* Dostęp do różnych prac oraz możliwość awansowania uzależniona od Twoich umiejętności\n'
+          '* Możliwość inwestowania na giełdzie\n'
+          '* Możliwość inwestowania w nieruchomości\n'
+          '* Możliwość podjęcia pracy freelancera jako youtuber, programista itd.\n'
+          '* Możliwość zakładania własnych firm i zatrudniania pracowników.\n'
+          '* Losowe eventy urozmaicające rozgrywkę.\n'
+          '* Moduł umiejętności umożlwiający awans w pracy i tworzenie lepszych rzeczy jako freelancer.\n'
+          '* Moduł banku umożlwiający wzięcie pożyczki lub założenie lokaty.\n'
+          '* Moduł rozdysponowywania czasu na różne czynności.\n',
+    ),
+  ),
   Project(
     name: 'Deskable',
     github: 'https://github.com/mniemyjski/deskable',
@@ -29,16 +73,6 @@ final List<Project> projects = [
             '* Podział na organizacje i pokoje\n'
             '* Przyjazny kreator pokojów oparty o drag&drop\n'),
   ),
-  // Project(
-  //   name: 'Languendly',
-  //   github: 'https://github.com/Clanhouse/languendly',
-  //   googlePlay: '',
-  //   images: [
-  //     'resources/images/languendly/1.jpg',
-  //   ],
-  //   libraries: ['Flutter', 'Dart', 'Bloc', 'Localization', 'Python', 'Django'],
-  //   markdown: MarkdownBody(data: 'Aplikacja do nauki języków realizowana w ramach społeczności ClanHouse.\n\n'),
-  // ),
   Project(
     name: 'Fitable',
     github: '',
@@ -65,7 +99,7 @@ final List<Project> projects = [
     ],
     markdown: MarkdownBody(
       data:
-          'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Aktualnie rozpocząłem przepisywanie aplikacji od podstaw wykorzystując Bloc/Cubit do zarzadzania stanem i Appwrite jako backend.\n\n'
+          'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Projekt początkowo zaczynałem pisać na czystym androidzie, lecz szybko przeniosłem się na fluttera. Aplikacje kilkukrotnie przepisywałem od podstaw, testując nowo zdobytą wiedzę, sprawdzając inne rozwiązania i starając się pisać lepszy kod.\n\n'
           '**Główne funkcje i zadania:**\n'
           '* Dodawanie produktów.\n'
           '* Tworzenie i publikowania własnych przepisów z wideo oraz zdjęciami.\n'
@@ -76,62 +110,6 @@ final List<Project> projects = [
           '* Wyliczenia BMR wraz z personalizacją.\n',
     ),
   ),
-  Project(
-    name: 'Authentication BloC',
-    github: 'https://github.com/mniemyjski/authentication_bloc',
-    googlePlay: '',
-    web: 'https://authentication-16d99.firebaseapp.com/sign-in',
-    images: [
-      'resources/images/authentication/authentication.png',
-      'resources/images/authentication/1.jpg',
-      'resources/images/authentication/2.jpg',
-      'resources/images/authentication/3.jpg',
-      'resources/images/authentication/4.jpg',
-      'resources/images/authentication/5.jpg',
-    ],
-    libraries: [
-      'Flutter',
-      'Dart',
-      'BLoc',
-      'Firestore',
-      'Storage',
-      'Authentication',
-      'Localization',
-      'Null Safety'
-    ],
-    markdown: MarkdownBody(
-      data:
-          'Projekt "startowy" wykorzystujący BloC napisany głównie w celach edukacyjnych.\n\n'
-          '**Główne funkcje i zadania:**\n'
-          '* Autoryzacja email oraz google\n'
-          '* Edycja profilu i zdjęcia\n'
-          '* Lokalizacja\n'
-          '* Tryb Ciemny\n',
-    ),
-  ),
-  // Project(
-  //   name: 'Authentication Riverpod',
-  //   github: 'https://github.com/mniemyjski/authentication_riverpod',
-  //   googlePlay: '',
-  //   web: '',
-  //   images: [
-  //     'resources/images/authentication/authentication.png',
-  //     'resources/images/authentication/1.jpg',
-  //     'resources/images/authentication/2.jpg',
-  //     'resources/images/authentication/3.jpg',
-  //     'resources/images/authentication/4.jpg',
-  //     'resources/images/authentication/5.jpg',
-  //   ],
-  //   libraries: ['Flutter', 'Dart', 'Riverpod', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
-  //   markdown: MarkdownBody(
-  //     data: 'Projekt "startowy" wykorzystujący Riverpod napisany głównie w celach edukacyjnych.\n\n'
-  //         '**Główne funkcje i zadania:**\n'
-  //         '* Autoryzacja email oraz google\n'
-  //         '* Edycja profilu i zdjęcia\n'
-  //         '* Lokalizacja\n'
-  //         '* Tryb Ciemny\n',
-  //   ),
-  // ),
   Project(
     name: 'ZPRBOX',
     images: [
@@ -152,11 +130,4 @@ final List<Project> projects = [
     ),
   ),
 ];
-final List<String> tech = [
-  'Flutter 🔥',
-  'Dart',
-  'Firebase',
-  'SQL',
-  'PL/SQL',
-  'VBA'
-];
+final List<String> tech = ['Flutter 🔥', 'Dart', 'Firebase', 'SQL', 'PL/SQL', 'VBA'];

@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:portfolio/app/image_screen.dart';
 import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/app/projects/widget/social_buttons.dart';
-import 'package:portfolio/common_widgets/description.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/common_widgets/text_card.dart';
 import 'package:portfolio/utilities/constants.dart';
 import 'package:portfolio/utilities/responsive.dart';
