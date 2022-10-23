@@ -12,24 +12,33 @@ final List<Project> projects = [
       'resources/images/deskable/2.jpg',
       'resources/images/deskable/3.jpg',
     ],
-    libraries: ['Flutter', 'Dart', 'Bloc', 'Firestore', 'Storage', 'Authentication', 'Localization'],
+    libraries: [
+      'Flutter',
+      'Dart',
+      'Bloc',
+      'Firestore',
+      'Storage',
+      'Authentication',
+      'Localization'
+    ],
     markdown: MarkdownBody(
-        data: 'Aplikacja do rezerowania biurek wraz z ekranem do zarządzania organizacją i pokajami.\n\n'
+        data:
+            'Aplikacja do rezerowania biurek wraz z ekranem do zarządzania organizacją i pokajami.\n\n'
             '**Główne funkcje i zadania:**\n'
             '* Mozliwośc zarezerwowania biurka na daną godzine\n'
             '* Podział na organizacje i pokoje\n'
             '* Przyjazny kreator pokojów oparty o drag&drop\n'),
   ),
-  Project(
-    name: 'Languendly',
-    github: 'https://github.com/Clanhouse/languendly',
-    googlePlay: '',
-    images: [
-      'resources/images/languendly/1.jpg',
-    ],
-    libraries: ['Flutter', 'Dart', 'Bloc', 'Localization', 'Python', 'Django'],
-    markdown: MarkdownBody(data: 'Aplikacja do nauki języków realizowana w ramach społeczności ClanHouse.\n\n'),
-  ),
+  // Project(
+  //   name: 'Languendly',
+  //   github: 'https://github.com/Clanhouse/languendly',
+  //   googlePlay: '',
+  //   images: [
+  //     'resources/images/languendly/1.jpg',
+  //   ],
+  //   libraries: ['Flutter', 'Dart', 'Bloc', 'Localization', 'Python', 'Django'],
+  //   markdown: MarkdownBody(data: 'Aplikacja do nauki języków realizowana w ramach społeczności ClanHouse.\n\n'),
+  // ),
   Project(
     name: 'Fitable',
     github: '',
@@ -56,7 +65,7 @@ final List<Project> projects = [
     ],
     markdown: MarkdownBody(
       data:
-          'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Projekt początkowo zaczynałem pisać na czystym androidzie, lecz szybko przeniosłem się na fluttera. Aplikacje kilkukrotnie przepisywałem od podstaw, testując nowo zdobytą wiedzę, sprawdzając inne rozwiązania i starając się pisać lepszy kod.\n\n'
+          'Jest to mój prywatny plac zabaw od którego zaczęła się moja przygoda z programowaniem obiektowym. Aktualnie rozpocząłem przepisywanie aplikacji od podstaw wykorzystując Bloc/Cubit do zarzadzania stanem i Appwrite jako backend.\n\n'
           '**Główne funkcje i zadania:**\n'
           '* Dodawanie produktów.\n'
           '* Tworzenie i publikowania własnych przepisów z wideo oraz zdjęciami.\n'
@@ -80,9 +89,19 @@ final List<Project> projects = [
       'resources/images/authentication/4.jpg',
       'resources/images/authentication/5.jpg',
     ],
-    libraries: ['Flutter', 'Dart', 'BLoc', 'Firestore', 'Storage', 'Authentication', 'Localization', 'Null Safety'],
+    libraries: [
+      'Flutter',
+      'Dart',
+      'BLoc',
+      'Firestore',
+      'Storage',
+      'Authentication',
+      'Localization',
+      'Null Safety'
+    ],
     markdown: MarkdownBody(
-      data: 'Projekt "startowy" wykorzystujący BloC napisany głównie w celach edukacyjnych.\n\n'
+      data:
+          'Projekt "startowy" wykorzystujący BloC napisany głównie w celach edukacyjnych.\n\n'
           '**Główne funkcje i zadania:**\n'
           '* Autoryzacja email oraz google\n'
           '* Edycja profilu i zdjęcia\n'
@@ -133,4 +152,11 @@ final List<Project> projects = [
     ),
   ),
 ];
-final List<String> tech = ['Flutter 🔥', 'Dart', 'Firebase', 'SQL', 'PL/SQL', 'VBA'];
+final List<String> tech = [
+  'Flutter 🔥',
+  'Dart',
+  'Firebase',
+  'SQL',
+  'PL/SQL',
+  'VBA'
+];

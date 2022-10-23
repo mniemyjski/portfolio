@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/about_me_sceen.dart';
-import 'package:portfolio/app/projects/model/project.dart';
 import 'package:portfolio/app/projects/projects_sceen.dart';
 import 'package:portfolio/app/welcome_screen.dart';
 import 'package:portfolio/common_widgets/text_button.dart';
@@ -10,7 +8,8 @@ import 'package:portfolio/utilities/data.dart';
 class HomeScreen extends StatelessWidget {
   final _controller = ScrollController();
   _onPressed(BuildContext context, int i) {
-    _controller.animateTo(MediaQuery.of(context).size.height * i, duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
+    _controller.animateTo(MediaQuery.of(context).size.height * i,
+        duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
   }
 
   @override
