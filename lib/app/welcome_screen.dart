@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:portfolio/common_widgets/custom_screen.dart';
-import 'package:portfolio/common_widgets/custom_icon_button.dart';
-import 'package:portfolio/common_widgets/main_image.dart';
-import 'package:portfolio/common_widgets/open_url.dart';
-import 'package:portfolio/utilities/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/common_widgets/custom_icon_button.dart';
+import 'package:portfolio/common_widgets/custom_screen.dart';
+import 'package:portfolio/common_widgets/open_url.dart';
+import 'package:portfolio/utilities/constants.dart';
 import 'package:portfolio/utilities/responsive.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -52,16 +51,22 @@ class WelcomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomIconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
-                CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
+                CustomIconButton(
+                    icon: FaIcon(FontAwesomeIcons.linkedin),
+                    color: Colors.blue[800],
+                    onPressed: () => openUrl(Constants.linkedIn())),
+                CustomIconButton(
+                    icon: FaIcon(FontAwesomeIcons.github),
+                    color: Colors.white,
+                    onPressed: () => openUrl(Constants.github())),
               ],
             )
           ],
         )),
         Expanded(
             child: Center(
-          child: MainImage(),
-        )),
+                // child: MainImage(),
+                )),
       ],
     );
   }
@@ -93,8 +98,14 @@ class WelcomeScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomIconButton(icon: FaIcon(FontAwesomeIcons.linkedin), color: Colors.blue[800], onPressed: () => openUrl(Constants.linkedIn())),
-            CustomIconButton(icon: FaIcon(FontAwesomeIcons.github), color: Colors.white, onPressed: () => openUrl(Constants.github())),
+            CustomIconButton(
+                icon: FaIcon(FontAwesomeIcons.linkedin),
+                color: Colors.blue[800],
+                onPressed: () => openUrl(Constants.linkedIn())),
+            CustomIconButton(
+                icon: FaIcon(FontAwesomeIcons.github),
+                color: Colors.white,
+                onPressed: () => openUrl(Constants.github())),
           ],
         ),
       ],

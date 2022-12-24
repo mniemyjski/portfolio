@@ -25,10 +25,11 @@ final List<Project> projects = [
       'Dart',
       'Bloc',
       'HydratedBloc',
+      'Freezed',
       'Isar',
       'GetIt',
       'Injectable',
-      'Clean Code',
+      'Auto_route',
       'Localization'
     ],
     markdown: MarkdownBody(
