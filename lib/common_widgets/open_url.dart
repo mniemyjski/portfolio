@@ -1,9 +1,5 @@
 import 'package:url_launcher/url_launcher.dart';
 
-openUrl(String url) {
-  return launch(
-    url,
-    forceSafariVC: false,
-    forceWebView: false,
-  );
+Future<void> openUrl(String url) {
+  return launchUrl(Uri.parse(url));
 }

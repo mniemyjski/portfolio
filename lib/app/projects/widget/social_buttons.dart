@@ -21,7 +21,7 @@ class SocialButtons extends StatelessWidget {
         children: [
           if (project.googlePlay.isNotEmpty)
             TextButton(
-                onPressed: () => _onGooglePress,
+                onPressed: _onGooglePress,
                 child: Image.asset(
                   'resources/images/google-play-pl.png',
                   width: 150,
@@ -30,12 +30,12 @@ class SocialButtons extends StatelessWidget {
             CustomIconButton(
                 icon: FaIcon(FontAwesomeIcons.github),
                 color: Colors.white,
-                onPressed: () => _onGithubPress()),
+                onPressed: _onGithubPress),
           if (project.web.isNotEmpty)
             CustomIconButton(
                 icon: FaIcon(FontAwesomeIcons.link),
                 color: Colors.white,
-                onPressed: () => _onWebPress()),
+                onPressed: _onWebPress),
         ],
       ),
     );
