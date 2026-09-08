@@ -55,29 +55,23 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     return PageSection(
       child: SizedBox(
         height: viewportHeight,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            const _HeroBackdrop(),
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                AppSpacing.md,
-                topInset,
-                AppSpacing.md,
-                AppSpacing.xl,
-              ),
-              child: FadeTransition(
-                opacity: _fadeAnimation,
-                child: SlideTransition(
-                  position: _slideAnimation,
-                  child: ResponsiveLayout(
-                    desktop: _desktopLayout(context),
-                    mobile: _mobileLayout(context),
-                  ),
-                ),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+            AppSpacing.md,
+            topInset,
+            AppSpacing.md,
+            AppSpacing.xl,
+          ),
+          child: FadeTransition(
+            opacity: _fadeAnimation,
+            child: SlideTransition(
+              position: _slideAnimation,
+              child: ResponsiveLayout(
+                desktop: _desktopLayout(context),
+                mobile: _mobileLayout(context),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -184,60 +178,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ],
         ),
       ],
-    );
-  }
-}
-
-class _HeroBackdrop extends StatelessWidget {
-  const _HeroBackdrop();
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned.fill(
-      child: IgnorePointer(
-        child: Stack(
-          children: [
-            Positioned(
-              top: -60,
-              left: -80,
-              child: _GlowOrb(
-                size: 280,
-                color: AppColors.accent.withValues(alpha: 0.07),
-              ),
-            ),
-            Positioned(
-              bottom: 80,
-              left: -40,
-              child: _GlowOrb(
-                size: 200,
-                color: AppColors.accent.withValues(alpha: 0.05),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _GlowOrb extends StatelessWidget {
-  final double size;
-  final Color color;
-
-  const _GlowOrb({
-    required this.size,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
-      ),
     );
   }
 }

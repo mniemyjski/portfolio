@@ -5,10 +5,12 @@ import 'package:portfolio/shared/theme/app_theme.dart';
 
 class ProjectImagePreview extends StatefulWidget {
   final List<String> images;
+  final bool openGalleryOnTap;
 
   const ProjectImagePreview({
     super.key,
     required this.images,
+    this.openGalleryOnTap = true,
   });
 
   @override
@@ -35,6 +37,18 @@ class _ProjectImagePreviewState extends State<ProjectImagePreview> {
   Widget build(BuildContext context) {
     if (widget.images.isEmpty) {
       return const SizedBox.shrink();
+    }
+
+    if (!widget.openGalleryOnTap) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(AppRadius.image),
+        child: Image.asset(
+          widget.images.first,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+        ),
+      );
     }
 
     return MouseRegion(

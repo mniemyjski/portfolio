@@ -85,7 +85,10 @@ class ProjectCard extends StatelessWidget {
         if (project.images.isNotEmpty)
           Expanded(
             flex: 5,
-            child: ProjectImagePreview(images: project.images),
+            child: ProjectImagePreview(
+              images: project.images,
+              openGalleryOnTap: false,
+            ),
           ),
         if (project.images.isNotEmpty) const SizedBox(width: AppSpacing.lg),
         Expanded(
@@ -107,7 +110,10 @@ class ProjectCard extends StatelessWidget {
         if (project.images.isNotEmpty) ...[
           SizedBox(
             height: 200,
-            child: ProjectImagePreview(images: project.images),
+            child: ProjectImagePreview(
+              images: project.images,
+              openGalleryOnTap: false,
+            ),
           ),
           const SizedBox(height: AppSpacing.md),
         ],
