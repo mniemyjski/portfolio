@@ -1,19 +1,17 @@
-import 'package:flutter_markdown/flutter_markdown.dart';
-
 class Project {
   final String name;
   final List<String> images;
   final List<String> libraries;
-  final MarkdownBody markdown;
+  final String description;
   final String github;
   final String googlePlay;
   final String web;
 
-  Project({
+  const Project({
     required this.name,
     required this.images,
     required this.libraries,
-    required this.markdown,
+    required this.description,
     this.github = '',
     this.googlePlay = '',
     this.web = '',

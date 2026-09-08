@@ -1,53 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/projects/model/project.dart';
-import 'package:portfolio/app/projects/widget/custom_project.dart';
-import 'package:portfolio/common_widgets/custom_screen.dart';
+import 'package:portfolio/models/project.dart';
+import 'package:portfolio/screens/projects/project_card.dart';
+import 'package:portfolio/shared/layout/page_section.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProjectsScreen extends StatefulWidget {
   final List<Project> projects;
 
-  const ProjectsScreen(this.projects, {Key? key}) : super(key: key);
+  const ProjectsScreen(this.projects, {super.key});
 
   @override
-  _ProjectsScreenState createState() => _ProjectsScreenState();
+  State<ProjectsScreen> createState() => _ProjectsScreenState();
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  final controller = PageController(viewportFraction: 0.9, keepPage: true);
+  final _pageController = PageController(viewportFraction: 0.9, keepPage: true);
 
   @override
   void dispose() {
-    controller.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _project() => widget.projects.map((e) => CustomProject(e)).toList();
+    final projectCards =
+        widget.projects.map((project) => ProjectCard(project)).toList();
 
-    return CustomScreen(
+    return PageSection(
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 585),
-              child: Container(
+              constraints: const BoxConstraints(maxHeight: 585),
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: PageView.builder(
-                  controller: controller,
-                  itemBuilder: (_, index) {
-                    return _project()[index % _project().length];
-                  },
+                  controller: _pageController,
+                  itemCount: projectCards.length,
+                  itemBuilder: (_, index) => projectCards[index],
                 ),
               ),
             ),
             SmoothPageIndicator(
-              controller: controller,
-              count: _project().length,
-              effect: JumpingDotEffect(
+              controller: _pageController,
+              count: projectCards.length,
+              effect: const JumpingDotEffect(
                 dotHeight: 16,
                 dotWidth: 16,
                 jumpScale: .7,

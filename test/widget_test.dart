@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:portfolio/app/home_screen.dart';
+import 'package:portfolio/screens/home/home_screen.dart';
 
 void main() {
   testWidgets('HomeScreen renders welcome message', (WidgetTester tester) async {
