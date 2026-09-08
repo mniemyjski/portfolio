@@ -1,5 +1,17 @@
 import 'package:portfolio/models/project.dart';
 
+const langDeckDescription =
+    'LangDeck to aplikacja do nauki języków obcych, która pomaga zapamiętywać słownictwo na stałe — w kontekście prawdziwych zdań, a nie suchych definicji. Każde słowo poznajesz w naturalnych sytuacjach, z inteligentnymi powtórkami SRS i gamifikacją w postaci kolekcjonowalnych kart.\n\n'
+    '**Główne funkcje:**\n'
+    '* Baza prawie 6 tys. angielskich słów z ponad 16 tys. przykładów użycia\n'
+    '* Nauka w kontekście zdań z różnymi czasami i formami gramatycznymi\n'
+    '* System powtórek rozłożonych w czasie (SRS) z kalendarzem nauki\n'
+    '* Własne zestawy słówek oraz zestawy społeczności\n'
+    '* Centralny słownik moderowany z propozycjami słów wspieranymi przez AI\n'
+    '* Historie audio do nauki ze słuchu\n'
+    '* Kolekcjonowalne ilustrowane karty z systemem ulepszania\n'
+    '* Model freemium z subskrypcją Premium\n';
+
 const richAbleDescription =
     'Turowa gra edukacyjna w której Twoim zdanie jest stać się bogatym poprzez prace, inwestowanie na giełdzie lub w nieruchomości, czy zakładanie własnych biznesów.\n\n'
     '**Główne funkcje i zadania:**\n'
@@ -44,6 +56,29 @@ const zprboxDescription =
 
 final List<Project> projects = [
   Project(
+    name: 'LangDeck',
+    web: 'https://langdeck.com/',
+    googlePlay:
+        'https://play.google.com/store/apps/details?id=pl.niemyjski.marcel.langdeck',
+    images: [
+      'resources/images/langdeck/1.webp',
+      'resources/images/langdeck/2.webp',
+      'resources/images/langdeck/3.webp',
+      'resources/images/langdeck/4.webp',
+      'resources/images/langdeck/5.webp',
+      'resources/images/langdeck/6.webp',
+      'resources/images/langdeck/7.webp',
+      'resources/images/langdeck/8.webp',
+    ],
+    libraries: [
+      'Flutter',
+      'Dart',
+      'Supabase',
+      'Localization',
+    ],
+    description: langDeckDescription,
+  ),
+  Project(
     name: 'RichAble',
     github: 'https://github.com/mniemyjski/life_simulator',
     images: [
@@ -78,7 +113,6 @@ final List<Project> projects = [
   Project(
     name: 'Deskable',
     github: 'https://github.com/mniemyjski/deskable',
-    web: 'https://deskable.pl/',
     images: [
       'resources/images/deskable/1.jpg',
       'resources/images/deskable/2.jpg',
@@ -97,6 +131,7 @@ final List<Project> projects = [
   ),
   Project(
     name: 'Fitable',
+    github: 'https://github.com/mniemyjski/fitable',
     images: [
       'resources/images/fitable/fitable.png',
       'resources/images/fitable/1.jpg',

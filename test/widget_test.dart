@@ -7,6 +7,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 900));
 
     expect(find.text('Marcel Niemyjski'), findsWidgets);
-    expect(find.text('Flutter Developer'), findsOneWidget);
+    expect(find.text('Oracle SQL'), findsOneWidget);
+    expect(find.text('Supabase'), findsOneWidget);
   });
 }

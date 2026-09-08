@@ -23,7 +23,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 0.82);
+    _pageController = PageController(viewportFraction: 0.94);
     _pageController.addListener(_handlePageChanged);
   }
 
@@ -53,9 +53,10 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   Widget build(BuildContext context) {
     final isDesktop = ResponsiveLayout.isDesktop(context);
     final sectionHeight = MediaQuery.of(context).size.height;
-    final carouselHeight = sectionHeight * 0.58;
+    final carouselHeight = sectionHeight * 0.72;
 
     return PageSection(
+      fullHeight: true,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
         child: SizedBox(
@@ -65,6 +66,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               const SizedBox(height: AppSpacing.xl),
               Text(
                 AppLabels.projectsSectionTitle,
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: AppSpacing.xs),

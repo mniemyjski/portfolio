@@ -58,8 +58,16 @@ abstract final class AppTheme {
           color: AppColors.textPrimary,
           fontWeight: FontWeight.w600,
         ),
-        bodyLarge: bodyFont.bodyLarge?.copyWith(color: AppColors.textMuted),
-        bodyMedium: bodyFont.bodyMedium?.copyWith(color: AppColors.textMuted),
+        bodyLarge: bodyFont.bodyLarge?.copyWith(
+          color: AppColors.textMuted,
+          fontSize: 17,
+          height: 1.5,
+        ),
+        bodyMedium: bodyFont.bodyMedium?.copyWith(
+          color: AppColors.textMuted,
+          fontSize: 15,
+          height: 1.6,
+        ),
         labelLarge: bodyFont.labelLarge?.copyWith(
           color: AppColors.textPrimary,
           fontWeight: FontWeight.w500,
@@ -85,12 +93,22 @@ abstract final class AppTheme {
     final textTheme = Theme.of(context).textTheme;
 
     return MarkdownStyleSheet(
-      p: textTheme.bodyMedium,
+      p: textTheme.bodyMedium?.copyWith(
+        fontSize: 16,
+        height: 1.6,
+        color: AppColors.textMuted,
+      ),
       strong: textTheme.bodyMedium?.copyWith(
         color: AppColors.textPrimary,
         fontWeight: FontWeight.w600,
+        fontSize: 16,
+        height: 1.6,
       ),
-      listBullet: textTheme.bodyMedium,
+      listBullet: textTheme.bodyMedium?.copyWith(
+        fontSize: 16,
+        height: 1.6,
+        color: AppColors.textMuted,
+      ),
       h1: textTheme.titleLarge,
       h2: textTheme.titleLarge?.copyWith(fontSize: 18),
       blockSpacing: AppSpacing.sm,

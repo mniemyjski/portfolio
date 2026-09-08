@@ -29,12 +29,10 @@ class ProjectSocialButtons extends StatelessWidget {
             onPressed: () => openUrl(project.web),
           ),
         if (project.googlePlay.isNotEmpty)
-          TextButton(
+          _ActionPill(
+            icon: FontAwesomeIcons.googlePlay,
+            label: AppLabels.googlePlay,
             onPressed: () => openUrl(project.googlePlay),
-            child: Image.asset(
-              'resources/images/google-play-pl.png',
-              height: 36,
-            ),
           ),
       ],
     );

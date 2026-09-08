@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 class PageSection extends StatelessWidget {
   final Widget child;
+  final bool fullHeight;
 
-  const PageSection({super.key, required this.child});
+  const PageSection({
+    super.key,
+    required this.child,
+    this.fullHeight = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +16,8 @@ class PageSection extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 1200,
-          minHeight: MediaQuery.of(context).size.height,
+          minHeight:
+              fullHeight ? MediaQuery.of(context).size.height : 0,
         ),
         child: child,
       ),
