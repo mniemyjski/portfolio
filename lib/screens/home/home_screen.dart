@@ -2,39 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/data/projects.dart';
 import 'package:portfolio/screens/projects/projects_screen.dart';
 import 'package:portfolio/screens/welcome/welcome_screen.dart';
-import 'package:portfolio/shared/config/app_labels.dart';
-import 'package:portfolio/shared/widgets/nav_text_button.dart';
+import 'package:portfolio/shared/widgets/portfolio_nav_bar.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final _scrollController = ScrollController();
 
-  void _scrollToSection(BuildContext context, int index) {
+  void _scrollToSection(int index) {
+    if (!_scrollController.hasClients) {
+      return;
+    }
+
     _scrollController.animateTo(
-      MediaQuery.of(context).size.height * index,
-      duration: const Duration(seconds: 2),
-      curve: Curves.fastOutSlowIn,
+      _scrollController.position.viewportDimension * index,
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.easeOutCubic,
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        actions: [
-          NavTextButton(
-            label: AppLabels.projects,
-            onPressed: () => _scrollToSection(context, 1),
-          ),
-          NavTextButton(
-            label: AppLabels.home,
-            onPressed: () => _scrollToSection(context, 0),
-          ),
-          const SizedBox(width: 20),
-        ],
+      extendBodyBehindAppBar: true,
+      appBar: PortfolioNavBar(
+        onHomePressed: () => _scrollToSection(0),
+        onProjectsPressed: () => _scrollToSection(1),
       ),
       body: ListView(
         controller: _scrollController,

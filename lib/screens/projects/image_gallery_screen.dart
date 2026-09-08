@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/shared/theme/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ImageGalleryScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class ImageGalleryScreen extends StatefulWidget {
 }
 
 class _ImageGalleryScreenState extends State<ImageGalleryScreen> {
-  final _pageController = PageController(viewportFraction: 0.9, keepPage: true);
+  final _pageController = PageController();
 
   @override
   void dispose() {
@@ -21,39 +22,49 @@ class _ImageGalleryScreenState extends State<ImageGalleryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final imageWidgets = widget.images
-        .map(
-          (imagePath) => Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Image.asset(imagePath),
-          ),
-        )
-        .toList();
-
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
+        backgroundColor: AppColors.surface.withValues(alpha: 0.9),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.8,
+          Expanded(
             child: PageView.builder(
               controller: _pageController,
-              itemCount: imageWidgets.length,
-              itemBuilder: (_, index) => imageWidgets[index],
+              itemCount: widget.images.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(AppSpacing.md),
+                  child: InteractiveViewer(
+                    minScale: 0.8,
+                    maxScale: 4,
+                    child: Image.asset(
+                      widget.images[index],
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
-          SmoothPageIndicator(
-            controller: _pageController,
-            count: imageWidgets.length,
-            effect: const JumpingDotEffect(
-              dotHeight: 16,
-              dotWidth: 16,
-              jumpScale: .7,
-              verticalOffset: 15,
+          Padding(
+            padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+            child: SmoothPageIndicator(
+              controller: _pageController,
+              count: widget.images.length,
+              effect: const ExpandingDotsEffect(
+                dotHeight: 8,
+                dotWidth: 8,
+                expansionFactor: 4,
+                spacing: 8,
+                activeDotColor: AppColors.accent,
+                dotColor: AppColors.border,
+              ),
             ),
           ),
         ],
